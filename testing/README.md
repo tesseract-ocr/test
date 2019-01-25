@@ -31,6 +31,8 @@ That information is now moved here.
 
 #### Fonts required for unittests
 
+The following fonts should be copied to test/testing folder for stringrenderer_test to run.
+
 - Arab
 https://packages.ubuntu.com/trusty/fonts-arabeyes  - GNU  General Public License 
 
