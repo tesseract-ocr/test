@@ -15,4 +15,4 @@ done
 
 mkdir -p ~/lang-stopwords
 cd ~/lang-stopwords
-cp ~/lang-deva-downloads/imagessan/stopwords.txt ./san.stopwords.txt 
+cp ~/lang-deva-downloads/imagessan/stopwords.txt ./san.stopwords.txt

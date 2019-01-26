@@ -54,7 +54,7 @@ fi
 if [ "$lang" = "san" ] ||  [ "$lang" = "Devanagari" ]
     then
        testsets="san-fontsamples san-oldstyle san-shreelipi san-alphabetsamples"
-	   ### testsets="san-fontsamples" 
+	   ### testsets="san-fontsamples"
 fi
 
 totalerrs=0

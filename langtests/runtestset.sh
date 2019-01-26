@@ -15,7 +15,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-if  [ $# -ne 4 ] 
+if  [ $# -ne 4 ]
 then
   echo "Usage:$0 pagesfile tessdata-dir langcode imgext"
   exit 1
