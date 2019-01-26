@@ -5,18 +5,11 @@ This repo has files required by Google's unittests for Tesseract.
 The unicharset files were provided by Ray Smith for unicharcompress_test.
 These seem to be old format unicharsets, having ligatures as unichars.
 
-lstm related unittests required unicharset and lstmf files
-for eng and kor using Arial font. Since the files were not provided
-with the unittest sources, an attempt was made to recreate them
-based on comments in lstm_test.cc. (See https://github.com/tesseract-ocr/test/issues/13)
+A number of testdata files required for unittests were not made available
+with the test sources. An attempt has been made to recreate similar files.
 
-Since these are based on different training_text than what was used
-at Google, some tweaking of tests was required to get the expected results.
-(eg. number of training iterations were increased in some cases)
-Filenames were changed to use the default names created by tesstrain.sh.
+The files for lstm related tests have been created as follows:
 
-The following commands were used to create the required files and remove
-the ones not needed by the unittests.
 
 ```
 src/training/tesstrain.sh \
