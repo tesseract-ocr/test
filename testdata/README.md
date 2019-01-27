@@ -21,7 +21,7 @@ src/training/tesstrain.sh \
 --tessdata_dir ../tessdata \
 --output_dir ~/test/testdata \
 --fontlist "Arial" "Arial Unicode MS" \
---maxpages 10 --x_size 800
+--maxpages 10 --xsize 800
 
 rm ~/test/testdata/eng.training_files.txt
 rm ~/test/testdata/eng/eng.charset_size*.txt
@@ -35,7 +35,7 @@ src/training/tesstrain.sh \
 --tessdata_dir ../tessdata \
 --output_dir ~/test/testdata \
 --fontlist "Arial Unicode MS" \
---maxpages 10 --x_size 800
+--maxpages 10 --xsize 800
 
 rm ~/test/testdata/kor.training_files.txt
 rm ~/test/testdata/kor/kor.charset_size*.txt
@@ -49,7 +49,7 @@ src/training/tesstrain.sh \
 --tessdata_dir ../tessdata \
 --output_dir ~/test/testdata \
 --fontlist "Arial Unicode MS" \
---maxpages 10 --x_size 800
+--maxpages 10 --xsize 800
 
 rm ~/test/testdata/kan.training_files.txt
 rm ~/test/testdata/kan/kan.charset_size*.txt
@@ -63,7 +63,7 @@ src/training/tesstrain.sh \
 --tessdata_dir ../tessdata \
 --output_dir ~/test/testdata \
 --fontlist "Arial Unicode MS" \
---maxpages 10 --x_size 800
+--maxpages 10 --xsize 800
 
 rm ~/test/testdata/deu.training_files.txt
 rm ~/test/testdata/deu/deu.charset_size*.txt
@@ -77,7 +77,7 @@ src/training/tesstrain.sh \
 --tessdata_dir ../tessdata \
 --output_dir ~/test/testdata \
 --fontlist "Arial Unicode MS" \
---maxpages 10 --x_size 800
+--maxpages 10 --xsize 800
 
 rm ~/test/testdata/fra.training_files.txt
 rm ~/test/testdata/fra/fra.charset_size*.txt
