@@ -32,3 +32,6 @@
 *.app
 
 langtests/results/*
+
+# Fonts
+/testing/*.ttf
