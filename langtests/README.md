@@ -15,24 +15,26 @@ Download images and corresponding ground truth  text for the language to be test
 Each testset should have only one kind of images (eg. tif, png, jpg etc).
 The ground truth text files should have the same base filename with txt extension.
 As needed, modify the filenames and create the `pages` file for each testset.
+
 Instructions for testing Fraktur and Sanskrit languages are given below as an example.
+
 ## Testing for Fraktur - frk and script/Fraktur
 ### Download the images and groundtruth, modify to required format.
 ```
-bash -x frk_setup.sh
+bash frk_setup.sh
 ```
 ### Run tests for Fraktur - frk and script/Fraktur
 ```
-bash -x frk_test.sh
+bash frk_test.sh
 ```
 ## Testing for Sanskrit - san and script/Devanagari
 ### Download the images and groundtruth, modify to required format.
 ```
-bash -x deva_setup.sh
+bash deva_setup.sh
 ```
 ### Run tests
 ```
-bash -x deva_test.sh
+bash deva_test.sh
 ```
 
 ### Notes from Nick White regarding wordacc

@@ -3,8 +3,6 @@
 # File:        runlangtests.sh
 # Description: Script to run a set of accuracy test sets for any language.
 #                      based on runalltests.sh by Ray Smith
-# Author:      Shree Devi Kumar
-# Created:     June 09, 2018
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -46,15 +44,15 @@ if [ "$bindir" = "$0" ]
 then
     bindir="./"
 fi
-rdir=langtests/reports
+rdir=./langtests/reports
 if [ "$lang" = "frk" ] ||  [ "$lang" = "Fraktur" ]
     then
        testsets="frk-ligatures"
 fi
 if [ "$lang" = "san" ] ||  [ "$lang" = "Devanagari" ]
     then
-       testsets="san-fontsamples san-oldstyle san-shreelipi san-alphabetsamples"
-	   ### testsets="san-fontsamples"
+       ### testsets="san-fontsamples san-oldstyle san-shreelipi san-alphabetsamples"
+	   testsets="san-oldstyle"
 fi
 
 totalerrs=0
@@ -62,44 +60,48 @@ totalwerrs=0
 totalnswerrs=0
 for set in $testsets
 do
-    resdir=langtests/results/$set
+    resultsdir=./langtests/results
+    mkdir -p "$resultsdir"
+    resdir=$resultsdir/$set
     mkdir -p "$resdir"
-    cp ~/lang-stopwords/frk.stopwords.txt "$resdir/$lang.stopwords"
+    cp ~/lang-stopwords/$lang.stopwords.txt "$resdir/$lang.stopwords"
     if [ -r "$imdir/$set/pages" ]
     then
 	# Run tesseract on all the pages.
-	$bindir/runtestset.sh "$imdir/$set/pages" "$tessdata" "$lang" "$imgext"
+	bash $bindir/runtestset.sh "$imdir/$set/pages" "$tessdata" "$lang" "$imgext"
 	# Count the errors on all the pages.
 	$bindir/counttestset.sh "$imdir/$set/pages" $lang
 	# Get the new character word and nonstop word errors and accuracy.
-	cherrs=$(head -4 "langtests/results/$set.characc" |tail -1 |cut -c1-9 |
+	cherrs=$(head -4 "$resultsdir/$set.characc" |tail -1 |cut -c1-9 |
 	    tr -d '[:blank:]')
-	chacc=$(head -5 "langtests/results/$set.characc" |tail -1 |cut -c1-9 |
+	chacc=$(head -5 "$resultsdir/$set.characc" |tail -1 |cut -c1-9 |
 	    tr -d '[:blank:]')
-	wderrs=$(head -4 "langtests/results/$set.wordacc" |tail -1 |cut -c1-9 |
+	wderrs=$(head -4 "$resultsdir/$set.wordacc" |tail -1 |cut -c1-9 |
 	    tr -d '[:blank:]')
-	wdacc=$(head -5 "langtests/results/$set.wordacc" |tail -1 |cut -c1-9 |
+	wdacc=$(head -5 "$resultsdir/$set.wordacc" |tail -1 |cut -c1-9 |
 	    tr -d '[:blank:]')
-	nswderrs=$(grep Total "langtests/results/$set.wordacc" |head -2 |tail -1 |
+	nswderrs=$(grep Total "$resultsdir/$set.wordacc" |head -2 |tail -1 |
 	    cut -c10-17 |tr -d '[:blank:]')
-	nswdacc=$(grep Total "langtests/results/$set.wordacc" |head -2 |tail -1 |
+	nswdacc=$(grep Total "$resultsdir/$set.wordacc" |head -2 |tail -1 |
 	    cut -c19-26 |tr -d '[:blank:]')
 
-    sumfile=$rdir/$vid.$set.sum
-        if [ -r "langtests/results/$set.times" ]
+    sumfile=$resultsdir/$vid.$set.sum
+        if [ -r "$resultsdir/$set.times" ]
         then
-          total_time=$(timesum "langtests/results/$set.times")
+          total_time=$(timesum "$resultsdir/$set.times")
       	else
           total_time='0.0'
         fi
-        echo "RELEASE		TestSet	CharErrors	Accuracy	WordErrors	Accuracy\
-	NonStopWErrors	Accuracy	TimeTaken">"$sumfile"
+        echo "RELEASE		TestSet		CharErrors	Accuracy	WordErrors	Accuracy\
+	NonStopWErrors	Accuracy	TimeTaken">"$resultsdir/$lang."Header
         echo "$vid	$set	$cherrs		$chacc		$wderrs		$wdacc\
-		$nswderrs			$nswdacc		${total_time}s" >>"$sumfile"
+		$nswderrs		$nswdacc		${total_time}s" >>"$sumfile"
     fi
 done
 
-cat "$rdir/$vid".*.sum >"$rdir/$vid".summary
+##cat "$resultsdir/$lang."Header >>"$rdir/$lang-$(date +%F)".summary
 
-mv "$rdir/$vid".*.sum langtests/results/
-cat "$rdir/$vid".summary
+cat "$resultsdir/$vid".*.sum >>"$rdir/$lang-$(date +%F)".summary
+cat "$resultsdir/$vid".*.sum >>"$rdir/$lang".summary
+
+cat "$resultsdir/$lang."Header "$rdir/$lang-$(date +%F)".summary 
