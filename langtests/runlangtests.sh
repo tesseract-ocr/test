@@ -52,7 +52,7 @@ fi
 if [ "$lang" = "san" ] ||  [ "$lang" = "Devanagari" ]
     then
        ### testsets="san-fontsamples san-oldstyle san-shreelipi san-alphabetsamples"
-	   testsets="san-oldstyle"
+       testsets="san-fontsamples san-oldstyle san-shreelipi"
 fi
 
 totalerrs=0
@@ -67,34 +67,34 @@ do
     cp ~/lang-stopwords/$lang.stopwords.txt "$resdir/$lang.stopwords"
     if [ -r "$imdir/$set/pages" ]
     then
-	# Run tesseract on all the pages.
-	bash $bindir/runtestset.sh "$imdir/$set/pages" "$tessdata" "$lang" "$imgext"
-	# Count the errors on all the pages.
-	$bindir/counttestset.sh "$imdir/$set/pages" $lang
-	# Get the new character word and nonstop word errors and accuracy.
-	cherrs=$(head -4 "$resultsdir/$set.characc" |tail -1 |cut -c1-9 |
-	    tr -d '[:blank:]')
-	chacc=$(head -5 "$resultsdir/$set.characc" |tail -1 |cut -c1-9 |
-	    tr -d '[:blank:]')
-	wderrs=$(head -4 "$resultsdir/$set.wordacc" |tail -1 |cut -c1-9 |
-	    tr -d '[:blank:]')
-	wdacc=$(head -5 "$resultsdir/$set.wordacc" |tail -1 |cut -c1-9 |
-	    tr -d '[:blank:]')
-	nswderrs=$(grep Total "$resultsdir/$set.wordacc" |head -2 |tail -1 |
-	    cut -c10-17 |tr -d '[:blank:]')
-	nswdacc=$(grep Total "$resultsdir/$set.wordacc" |head -2 |tail -1 |
-	    cut -c19-26 |tr -d '[:blank:]')
+    # Run tesseract on all the pages.
+    bash $bindir/runtestset.sh "$imdir/$set/pages" "$tessdata" "$lang" "$imgext"
+    # Count the errors on all the pages.
+    $bindir/counttestset.sh "$imdir/$set/pages" $lang
+    # Get the new character word and nonstop word errors and accuracy.
+    cherrs=$(head -4 "$resultsdir/$set.characc" |tail -1 |cut -c1-9 |
+        tr -d '[:blank:]')
+    chacc=$(head -5 "$resultsdir/$set.characc" |tail -1 |cut -c1-9 |
+        tr -d '[:blank:]')
+    wderrs=$(head -4 "$resultsdir/$set.wordacc" |tail -1 |cut -c1-9 |
+        tr -d '[:blank:]')
+    wdacc=$(head -5 "$resultsdir/$set.wordacc" |tail -1 |cut -c1-9 |
+        tr -d '[:blank:]')
+    nswderrs=$(grep Total "$resultsdir/$set.wordacc" |head -2 |tail -1 |
+        cut -c10-17 |tr -d '[:blank:]')
+    nswdacc=$(grep Total "$resultsdir/$set.wordacc" |head -2 |tail -1 |
+        cut -c19-26 |tr -d '[:blank:]')
 
     sumfile=$resultsdir/$vid.$set.sum
         if [ -r "$resultsdir/$set.times" ]
         then
           total_time=$(timesum "$resultsdir/$set.times")
-      	else
+          else
           total_time='0.0'
         fi
-        echo "RELEASE		TestSet		CharErrors	Accuracy	WordErrors	Accuracy\
+       echo "RELEASE		TestSet		CharErrors	Accuracy	WordErrors	Accuracy\
 	NonStopWErrors	Accuracy	TimeTaken">"$resultsdir/$lang."Header
-        echo "$vid	$set	$cherrs		$chacc		$wderrs		$wdacc\
+       echo "$vid	$set	$cherrs		$chacc		$wderrs		$wdacc\
 		$nswderrs		$nswdacc		${total_time}s" >>"$sumfile"
     fi
 done

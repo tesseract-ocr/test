@@ -5,8 +5,8 @@ cd ~/tesseract/test
 
 rm -rf ./langtests/results/*san*
 rm -rf ./langtests/results/*Devanagari*
-rm -rf ./langtests/reports/*san-$(date +%F)*
-rm -rf ./langtests/reports/*Devanagari-$(date +%F)*
+#rm -rf ./langtests/reports/*san-$(date +%F)*
+#rm -rf ./langtests/reports/*Devanagari-$(date +%F)*
 
 # Run the tests
 ./langtests/runlangtests.sh ~/lang-files 4_fast_Devanagari ../tessdata_fast/script Devanagari png
@@ -25,3 +25,4 @@ rm -rf ./langtests/results/*san*
 ### It takes a while to run.
 
 cd ~/tesseract/test/langtests/
+rm -rf ./times.txt

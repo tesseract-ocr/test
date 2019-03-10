@@ -21,7 +21,8 @@ then
   exit 1
 fi
 
-tess="time -f %U -o times.txt $HOME/tesseract/src/api/tesseract"
+tessdir=..
+tess="time -f %U -o times.txt $tessdir/src/api/tesseract"
 
 tessdata=$2
 langcode=$3

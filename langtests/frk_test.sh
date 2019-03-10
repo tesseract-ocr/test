@@ -39,3 +39,4 @@ wget -O ~/tesseract/tessdata_contrib/frk.traineddata https://github.com/Shreeshr
 rm -rf ./langtests/results/*frk*
 
 cd ~/tesseract/test/langtests/
+rm -rf ./times.txt
