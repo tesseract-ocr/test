@@ -21,7 +21,8 @@ then
   exit 1
 fi
 
-tess="time -f %U -o times.txt ./src/api/tesseract"
+tessdir=..
+tess="time -f %U -o times.txt $tessdir/src/api/tesseract"
 
 tessdata=$2
 langcode=$3
@@ -31,11 +32,11 @@ imdir=${pages%/pages}
 setname=${imdir##*/}
 
 config=""
-resdir=langtests/results/$setname
+resdir=./langtests/results/$setname
 
-echo -e "Testing on set $setname in directory $imdir to $resdir\n"
+echo -e "\nTesting $tessdata and $langcode on set $setname in directory $imdir to $resdir\n"
 mkdir -p "$resdir"
-rm -f "langtests/results/$setname.times"
+rm -f "./langtests/results/$setname.times"
 while read page dir
 do
   # A pages file may be a list of files with subdirs or maybe just
@@ -51,7 +52,7 @@ do
   if [ -r times.txt ]
   then
     read t <times.txt
-    echo "$page $t" >>"langtests/results/$setname.times"
+    echo "$page $t" >>"./langtests/results/$setname.times"
     echo -e "\033M$page $t"
     if [ "$t" = "Command terminated by signal 2" ]
     then

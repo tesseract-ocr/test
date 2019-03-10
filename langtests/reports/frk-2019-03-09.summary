@@ -1,0 +1,6 @@
+4_fast_frk	frk-ligatures	244		92.78%		109		79.63%		80		73.15		193.91s
+4_best_int_frk	frk-ligatures	244		92.78%		109		79.63%		80		73.15		194.35s
+4_best_frk	frk-ligatures	178		94.73%		100		81.31%		74		75.17		147.59s
+4_shreetest_frk	frk-ligatures	128		96.21%		84		84.30%		61		79.53		159.41s
+4_frk-plus-Fraktur-3000	frk-ligatures	134		96.03%		60		88.79%		46		84.56		148.53s
+4_frk-plus-Fraktur-52500	frk-ligatures	126		96.27%		47		91.21%		37		87.58		132.38s
