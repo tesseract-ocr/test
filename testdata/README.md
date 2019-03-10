@@ -19,12 +19,12 @@ src/training/tesstrain.sh \
 --noextract_font_properties \
 --langdata_dir ../langdata_lstm  \
 --tessdata_dir ../tessdata \
---output_dir ~/test/testdata \
+--output_dir ~/tesseract/test/testdata \
 --fontlist "Arial" "Arial Unicode MS" \
 --maxpages 10 --xsize 800
 
-rm ~/test/testdata/eng.training_files.txt
-rm ~/test/testdata/eng/eng.charset_size*.txt
+rm ~/tesseract/test/testdata/eng.training_files.txt
+rm ~/tesseract/test/testdata/eng/eng.charset_size*.txt
 
 src/training/tesstrain.sh \
 --fonts_dir ~/.fonts \
@@ -33,12 +33,13 @@ src/training/tesstrain.sh \
 --noextract_font_properties \
 --langdata_dir ../langdata_lstm  \
 --tessdata_dir ../tessdata \
---output_dir ~/test/testdata \
+--output_dir ~/tesseract/test/testdata \
 --fontlist "Arial Unicode MS" \
---maxpages 10 --xsize 800
+--maxpages 15 \
+--xsize 800
 
-rm ~/test/testdata/kor.training_files.txt
-rm ~/test/testdata/kor/kor.charset_size*.txt
+rm ~/tesseract/test/testdata/kor.training_files.txt
+rm ~/tesseract/test/testdata/kor/kor.charset_size*.txt
 
 src/training/tesstrain.sh \
 --fonts_dir ~/.fonts \
@@ -47,12 +48,12 @@ src/training/tesstrain.sh \
 --noextract_font_properties \
 --langdata_dir ../langdata_lstm  \
 --tessdata_dir ../tessdata \
---output_dir ~/test/testdata \
+--output_dir ~/tesseract/test/testdata \
 --fontlist "Arial Unicode MS" \
 --maxpages 10 --xsize 800
 
-rm ~/test/testdata/kan.training_files.txt
-rm ~/test/testdata/kan/kan.charset_size*.txt
+rm ~/tesseract/test/testdata/kan.training_files.txt
+rm ~/tesseract/test/testdata/kan/kan.charset_size*.txt
 
 src/training/tesstrain.sh \
 --fonts_dir ~/.fonts \
@@ -61,12 +62,12 @@ src/training/tesstrain.sh \
 --noextract_font_properties \
 --langdata_dir ../langdata_lstm  \
 --tessdata_dir ../tessdata \
---output_dir ~/test/testdata \
+--output_dir ~/tesseract/test/testdata \
 --fontlist "Arial Unicode MS" \
 --maxpages 10 --xsize 800
 
-rm ~/test/testdata/deu.training_files.txt
-rm ~/test/testdata/deu/deu.charset_size*.txt
+rm ~/tesseract/test/testdata/deu.training_files.txt
+rm ~/tesseract/test/testdata/deu/deu.charset_size*.txt
 
 src/training/tesstrain.sh \
 --fonts_dir ~/.fonts \
@@ -75,11 +76,11 @@ src/training/tesstrain.sh \
 --noextract_font_properties \
 --langdata_dir ../langdata_lstm  \
 --tessdata_dir ../tessdata \
---output_dir ~/test/testdata \
+--output_dir ~/tesseract/test/testdata \
 --fontlist "Arial Unicode MS" \
 --maxpages 10 --xsize 800
 
-rm ~/test/testdata/fra.training_files.txt
-rm ~/test/testdata/fra/fra.charset_size*.txt
+rm ~/tesseract/test/testdata/fra.training_files.txt
+rm ~/tesseract/test/testdata/fra/fra.charset_size*.txt
 
 ```
