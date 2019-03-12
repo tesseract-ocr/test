@@ -17,11 +17,15 @@ src/training/tesstrain.sh \
 --lang eng \
 --linedata_only   \
 --noextract_font_properties \
+--workspace_dir ~/tmp \
+--exposures "0" \
 --langdata_dir ../langdata_lstm  \
 --tessdata_dir ../tessdata \
 --output_dir ~/tesseract/test/testdata \
 --fontlist "Arial" "Arial Unicode MS" \
---maxpages 10 --xsize 800
+--training_text ~/langdata_lstm/eng/eng.training_text \
+--maxpages 20 \
+--xsize 800
 
 rm ~/tesseract/test/testdata/eng.training_files.txt
 rm ~/tesseract/test/testdata/eng/eng.charset_size*.txt
