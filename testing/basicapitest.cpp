@@ -1,9 +1,9 @@
+#include <allheaders.h>
+#include <stdio.h>
 #include <tesseract/baseapi.h>
-#include <leptonica/allheaders.h>
 
 int main()
 {
-    char *outText;
 
     tesseract::TessBaseAPI *api = new tesseract::TessBaseAPI();
     // Initialize tesseract-ocr with English
@@ -16,7 +16,7 @@ int main()
     Pix *image = pixRead("../test/testing/phototest.tif");
     api->SetImage(image);
     // Get OCR result
-    outText = api->GetUTF8Text();
+    char *outText = api->GetUTF8Text();
     printf("OCR output:\n%s", outText);
 
     // Destroy used object and release memory
