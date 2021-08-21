@@ -1,9 +1,0 @@
-4_fast_san	san-fontsamples	18385		92.17%		5389		73.08%		5389		73.08		3534.54s
-4_fast_san	san-oldstyle	3121		55.27%		602		30.48%		602		30.48		76.76s
-4_fast_san	san-shreelipi	1163		91.60%		417		75.06%		417		75.06		220.01s
-4_best_int_san	san-fontsamples	18385		92.17%		5389		73.08%		5389		73.08		3536.37s
-4_best_int_san	san-oldstyle	3121		55.27%		602		30.48%		602		30.48		76.86s
-4_best_int_san	san-shreelipi	1163		91.60%		417		75.06%		417		75.06		220.27s
-4_best_san	san-fontsamples	18458		92.14%		5408		72.99%		5408		72.99		2803.86s
-4_best_san	san-oldstyle	3121		55.27%		598		30.95%		598		30.95		58.98s
-4_best_san	san-shreelipi	1168		91.56%		414		75.24%		414		75.24		171.57s
