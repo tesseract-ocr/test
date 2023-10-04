@@ -2,9 +2,8 @@
 ##############################################################################
 # File:        runalltests_spa.sh
 # Description: Script to run a set of UNLV test sets for Spanish.
-#                      based on runalltests.sh by Ray Smith
+#              based on runalltests.sh by Ray Smith
 # Author:      Shree Devi Kumar
-# Created:     June 09, 2018
 #
 # (C) Copyright 2007, Google Inc.
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -27,7 +26,7 @@ then
   echo "Run $0 from the tesseract-ocr root directory!"
   exit 1
 fi
-if [ ! -r src/api/tesseract ] && [ ! -r tesseract.exe ]
+if [ ! -r tesseract ] && [ ! -r tesseract.exe ]
 then
   echo "Please build tesseract before running $0"
   exit 1
