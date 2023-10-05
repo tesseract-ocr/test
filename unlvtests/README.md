@@ -41,6 +41,9 @@ wget -O spa.stopwords.txt https://raw.githubusercontent.com/stopwords-iso/stopwo
 Edit ~/ISRI-OCRtk/stopwords/spa.stopwords.txt
 wordacc uses a space delimited stopwords file, not line delimited.
 s/\n/ /g
+```
+perl -pi -e 's/\n/ /' ~/ISRI-OCRtk/stopwords/spa.stopwords.txt
+```
 
 Edit ~/ISRI-OCRtk/spn.3B/pages
 Delete the line containing the following imagename as it [crashes tesseract](https://github.com/tesseract-ocr/tesseract/issues/1647#issuecomment-395954717).
