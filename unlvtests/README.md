@@ -58,10 +58,10 @@ sudo make install
 
 ### Step 4: cd back to your main tesseract-ocr dir and Build tesseract.
 
-### Step 5: run unlvtests/runalltests.sh with the root ISRI data dir, testname, tessdata-dir:
+### Step 5: run test/unlvtests/runalltests.sh with the root ISRI data dir, testname, tessdata-dir:
 
 ```
-unlvtests/runalltests.sh ~/ISRI-OCRtk 4_fast_eng ../tessdata_fast
+test/unlvtests/runalltests.sh ~/ISRI-OCRtk 4_fast_eng ../tessdata_fast
 ```
 and go to the gym, have lunch etc. It takes a while to run.
 
@@ -72,7 +72,7 @@ report and comparison with the 1995 results.
 ### Step 7: run the test for Spanish.
 
 ```
-unlvtests/runalltests_spa.sh ~/ISRI-OCRtk 4_fast_spa ../tessdata_fast
+test/unlvtests/runalltests_spa.sh ~/ISRI-OCRtk 4_fast_spa ../tessdata_fast
 ```
 
 #### Notes from Nick White regarding wordacc
