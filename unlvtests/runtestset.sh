@@ -2,7 +2,6 @@
 # File:        runtestset.sh
 # Description: Script to run tesseract on a single UNLV set.
 # Author:      Ray Smith
-# Created:     Wed Jun 13 10:13:01 PDT 2007
 #
 # (C) Copyright 2007, Google Inc.
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -25,7 +24,7 @@ then
   echo "Run $0 from the tesseract-ocr root directory!"
   exit 1
 fi
-if [ ! -r src/api/tesseract ]
+if [ ! -r tesseract ]
 then
   if [ ! -r tesseract.exe ]
   then
@@ -35,7 +34,7 @@ then
     tess="./tesseract.exe"
   fi
 else
-  tess="time -f %U -o times.txt src/api/tesseract"
+  tess="time -f %U -o times.txt ./tesseract"
   #tess="time -f %U -o times.txt tesseract"
 fi
 
