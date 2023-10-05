@@ -8,7 +8,7 @@ git clone https://github.com/Shreeshrii/ocr-evaluation-tools.git
 cd ~/ocr-evaluation-tools
 sudo make install
 ```
-### Step 2: If not alrady built, Build tesseract.
+### Step 2: If not already built, Build tesseract.
 Use binaries from the tesseract/src/api and tesseract/src/training directory.
 ### Step 3
 Download images and corresponding ground truth  text for the language to be tested.
@@ -50,7 +50,7 @@ or if you've already got a results file you want to change, you can do this:
 awk '$3 != 100 {print $0}'  results.txt  newresults.txt
 
 If you only want the last sections where things are broken down by
-word, you can add a sed commend, like this:
+word, you can add a sed command, like this:
 
 ocrevalutf8 wordacc ground.txt ocr.txt | sed '/^   Count   Missed %Right   $/,$
 !d' | awk '$3 != 100 {print $0}'  results.txt
