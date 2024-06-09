@@ -39,7 +39,7 @@ jobs:
              echo "Building leptonica..."
              git clone --depth 1 https://github.com/DanBloomberg/leptonica.git
              cd leptonica
-             cmake -G Ninja -Bbuild -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_PREFIX_PATH=${{env.ILOC}} -DCMAKE_INSTALL_PREFIX=${{env.ILOC}} -DSW_BUILD=OFF -DBUILD_PROG=OFF -DBUILD_SHARED_LIBS=ON
+             cmake -Bbuild -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_PREFIX_PATH=${{env.ILOC}} -DCMAKE_INSTALL_PREFIX=${{env.ILOC}} -DSW_BUILD=OFF -DBUILD_PROG=OFF -DBUILD_SHARED_LIBS=ON
              cmake --build build --target install
 
       - name: Build and Install tesseract
@@ -48,7 +48,7 @@ jobs:
         run: |
              git clone --depth 1 https://github.com/zdenop/tesseract.git
              cd tesseract
-             cmake -G Ninja -Bbuild -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_PREFIX_PATH=${{env.ILOC}} -DCMAKE_INSTALL_PREFIX=${{env.ILOC}} -DSW_BUILD=OFF -DBUILD_SHARED_LIBS=ON -DBUILD_TRAINING_TOOLS=ON -DOPENMP_BUILD=ON
+             cmake -Bbuild -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_PREFIX_PATH=${{env.ILOC}} -DCMAKE_INSTALL_PREFIX=${{env.ILOC}} -DSW_BUILD=OFF -DBUILD_SHARED_LIBS=ON -DBUILD_TRAINING_TOOLS=ON -DOPENMP_BUILD=ON
              cmake --build build --target install
 
       - name: Upload Build Results
